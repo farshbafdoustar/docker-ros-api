@@ -1,0 +1,19 @@
+#Request
+
+#docker-compose command
+string command
+string STOP_COMMAND="stop"
+string UP_COMMAND="up"
+
+string env_file
+string compose_file
+# service name to run
+string service_name
+
+---
+#Response
+# Error code
+int32 error_code
+int32 SUCCESSFULL = 0
+int32 COMMAND_ERROR = -1
+int32 COMMAND_NOT_SUPPORTED = -1

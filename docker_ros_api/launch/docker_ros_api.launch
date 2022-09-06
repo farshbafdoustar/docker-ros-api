@@ -1,0 +1,13 @@
+<launch>
+    <arg name="docker_compose_file" default=""/>
+    <arg name="cpu" default="$(optenv PROCESS_CPU 1,2)"/>
+    <arg name="priority" default="$(optenv PROCESS_PRIORITY 1)"/>
+
+    <node name="docker_ros_api" pkg="docker_ros_api" type="docker_compose_ros_api_node.py" output="screen"
+        launch-prefix="chrt -f $(arg priority) taskset -c $(arg cpu)">
+        <rosparam command="load" file="$(arg docker_compose_file)"/>
+    </node>
+
+
+
+</launch>

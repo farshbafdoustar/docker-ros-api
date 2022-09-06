@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>docker_ros_api</name>
+  <version>0.1.0</version>
+  <description>
+    ros api for docker
+  </description>
+  <author email="Mahmoud@Farshbaf.net">Mahmoud Farshbaf</author>
+  <maintainer email="Mahmoud@Farshbaf.net">Mahmoud Farshbaf</maintainer>
+
+  <license>NONE</license>
+
+
+<buildtool_depend>catkin</buildtool_depend>
+<depend>rospy</depend>
+<depend>docker_ros_api_msgs</depend>
+
+</package>
