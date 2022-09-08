@@ -25,21 +25,20 @@ def run_compose_command_callback(request):
     # client = docker.from_env()
     # container = client.containers.run(req.container_name, detach=req.detach)
     response=RunComposeCommandResponse()
-    response.error_code=SUCCESSFULL
+    response.error_code=response.SUCCESSFULL
     
     sys.argv=["docker-compose","-f",request.compose_file,"--env-file",request.env_file]
-    if request.command==request.UP_COMMAND:
+    if request.command=="up":
         sys.argv.append("up")
         sys.argv.append("--detach")
-        sys.argv.append(req.service_name)
-    elif request.command==request.STOP_COMMAND:
+        sys.argv.append(request.docker_service_name)
+    elif request.command=="stop":
         sys.argv.append("stop")
-        sys.argv.append(request.service_name)
+        sys.argv.append(request.docker_service_name)
     else :
-        request.error_code=response.COMMAND_NOT_SUPPORTED
+        print("command not supported.",request.command)
+        response.error_code=response.COMMAND_NOT_SUPPORTED
         return response
-
-
     
     try:
         docker_compose_main.main()

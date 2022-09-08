@@ -8,7 +8,7 @@ string UP_COMMAND="up"
 string env_file
 string compose_file
 # service name to run
-string service_name
+string docker_service_name
 
 ---
 #Response
